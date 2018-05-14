@@ -1,7 +1,7 @@
 ######################################################################
 Identity: Remove all Hotspot_Host-Hotspot_Cookies-DHCP-ARP
 Author: Tahasanul Abraham
-Creadted: Oct 16 2016
+Created: Oct 16 2016
 Last Edited: Jan 5 2018
 Compatible Versions: ROS 6.x
 Tested on: ROS 6.2 - 6.42
