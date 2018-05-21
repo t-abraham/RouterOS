@@ -1,10 +1,10 @@
 ######################################################################
-Identity: System Backup Mailer
-Author: Tahasanul Abraham
-Created: Oct 16 2016
-Last Edited: Jan 5 2018
-Compatible Versions: ROS 6.x
-Tested on: ROS 6.2 - 6.42
+###Identity: System Backup Mailer
+###Author: Tahasanul Abraham
+###Created: Oct 16 2016
+###Last Edited: Jan 5 2018
+###Compatible Versions: ROS 6.x
+###Tested on: ROS 6.2 - 6.42
 ######################################################################
 
 
@@ -57,21 +57,24 @@ Tested on: ROS 6.2 - 6.42
 # Start Sending email files, make sure you ahve configured tools email section before this. or else it will fail
 
 :if ($userman = "yes" and $dude = "yes") do={
-/tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail1 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb,dude_backup body="$sub1 system configurations backed up on $sub3 at $sub2"
+:if ($adminmail1 != "") do={
+/tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail1 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb,dude_backup body="$sub1 system configurations backed up on $sub3 at $sub2"}
 :if ($adminmail2 != "") do={
 /tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail2 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb,dude_backup body="$sub1 system configurations backed up on $sub3 at $sub2"}
 :if ($adminmail3 != "") do={
 /tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail3 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb,dude_backup body="$sub1 system configurations backed up on $sub3 at $sub2"}
 }
 :if ($userman = "yes" and $dude = "no") do={
-/tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail1 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb body="$sub1 system configurations backed up on $sub3 at $sub2"
+:if ($adminmail1 != "") do={
+/tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail1 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb body="$sub1 system configurations backed up on $sub3 at $sub2"}
 :if ($adminmail2 != "") do={
 /tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail2 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb body="$sub1 system configurations backed up on $sub3 at $sub2"}
 :if ($adminmail3 != "") do={
 /tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail3 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup,usm_export_backup.umb body="$sub1 system configurations backed up on $sub3 at $sub2"}
 }
 :if ($userman = "no" and $dude = "no") do={
-/tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail1 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup body="$sub1 system configurations backed up on $sub3 at $sub2"
+:if ($adminmail1 != "") do={
+/tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail1 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup body="$sub1 system configurations backed up on $sub3 at $sub2"}
 :if ($adminmail2 != "") do={
 /tool e-mail send server=$webmailsmtp port=$webmailport start-tls=tls-only user=$webmailuser password=$webmailpwd from=$fromuser to=$adminmail2 subject="$sub1 Configuration BACKUP Files" file=mt_config_backup.backup body="$sub1 system configurations backed up on $sub3 at $sub2"}
 :if ($adminmail3 != "") do={
