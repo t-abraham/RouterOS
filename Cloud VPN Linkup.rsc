@@ -28,7 +28,7 @@
 
 
 ### Working Script ###
-:if ([ :typeof $pppserverip ] = "nothing" ) do={ :global pppserverip [:resolve "$pppServerDnsName"] }
+:if ([ :len $pppserverip ] = 0 ) do={ :global pppserverip [:resolve "$pppServerDnsName"] }
 :local current [:resolve "$pppServerDnsName"];
 :log warning ("$pppserverip" . " vs " . "$current");
 
